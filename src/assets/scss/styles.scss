@@ -1,1 +1,9 @@
 @import "import-files";
+html,
+body {
+    height: 100%;
+}
+
+body {
+    color: $brand-color-dark;
+}
