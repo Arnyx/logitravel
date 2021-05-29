@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Users } from 'src/app/models/users';
 import { ErrorService } from 'src/app/services/error/error.service';
 import { UsersService } from 'src/app/services/users/users.service';
@@ -9,18 +9,30 @@ import { UsersService } from 'src/app/services/users/users.service';
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent {
+export class UsersComponent implements OnInit {
+  username: string = '';
   users = {} as Users;
-  username = new FormControl('');
   
   constructor(
     private readonly usersService: UsersService,
+    private readonly activatedRoute: ActivatedRoute,
     private readonly errorService: ErrorService
-    ) { }
+  ) { }
 
-  searchUsers(): void {
-    this.usersService.getUsers(this.username.value).subscribe(response => {
-      this.users = response;
+  ngOnInit(): void {
+    this.activatedRoute.params.subscribe(params => {
+      this.username = params['username'];
+      if (!this.username) 
+        return;
+
+      this.usersService.getUsers(this.username).subscribe(
+        response => {
+          this.users = response;
+        },
+        error => {
+          this.errorService.showError(error);
+        }
+      );
     });
   }
 

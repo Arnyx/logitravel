@@ -1,0 +1,4 @@
+@import "~src/assets/scss/import-files";
+.users {
+    @include fadeIn(1s);
+}

@@ -1,14 +1,9 @@
-<label>
-    Name:
-    <input type="text" id="username" [formControl]="username" required minlength="4">
+<section class="users">
+    <ng-container *ngIf="users.items">
+        <div *ngFor="let user of users.items">
+            <a [routerLink]="['/user', user.login]" routerLinkActive="active">{{user.login}}</a>
+        </div>
 
-    <div *ngIf="username.invalid && (username.dirty || username.touched)">invalid</div>
-</label>
-
-<button (click)="searchUsers()">Search user</button>
-
-<ng-container *ngIf="users.items">
-    <div *ngFor="let user of users.items">
-        <a [routerLink]="['/user', user.login]" routerLinkActive="active">{{user.login}}</a>
-    </div>
-</ng-container>
+        <app-users-chart [users]="users.items"></app-users-chart>
+    </ng-container>
+</section>

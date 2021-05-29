@@ -5,6 +5,7 @@ import { UsersComponent } from './components/users/users.component';
 
 const APP_ROUTES: Routes = [
   { path: 'home', component: UsersComponent },
+  { path: 'users/:username', component: UsersComponent },
   { path: 'user/:username', component: UserComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];

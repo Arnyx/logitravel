@@ -4,15 +4,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NgxEchartsModule } from 'ngx-echarts';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
+import { ErrorViewerComponent } from './components/error-viewer/error-viewer.component';
+import { UsersChartComponent } from './components/users-chart/users-chart.component';
 
 import { UsersService } from './services/users/users.service';
-import { UserService } from './services/user/user.service';
-import { ErrorViewerComponent } from './components/error-viewer/error-viewer.component';
+import { ErrorService } from './services/error/error.service';
+import { SearchUserComponent } from './components/search-user/search-user.component';
 
 @NgModule({
   declarations: [
@@ -20,18 +24,24 @@ import { ErrorViewerComponent } from './components/error-viewer/error-viewer.com
     HeaderComponent,
     UsersComponent,
     UserComponent,
-    ErrorViewerComponent
+    ErrorViewerComponent,
+    UsersChartComponent,
+    SearchUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule,
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
   providers: [
     UsersService,
-    UserService
+    ErrorService
   ],
   bootstrap: [AppComponent]
 })

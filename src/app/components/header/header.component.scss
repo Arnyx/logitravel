@@ -9,6 +9,11 @@
     background-color: $color-white;
     padding: 10px;
     @include box-shadow(1px 1px 1px darken($brand-color-soft, 10%));
+    &__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
     &__main-logo {
         float: left;
         margin-right: 20px;
