@@ -11,7 +11,7 @@ const MAX_RESULTS: number = 10;
   providedIn: 'root'
 })
 export class UsersService {
-  private basePath: string = APP_CONFIG?.ApiBaseUrl;
+  private basePath: string = `${APP_CONFIG?.ApiBaseUrl}`;
   private methodPath: string = 'search/users';
   
   constructor(private httpClient: HttpClient) { }
