@@ -8,14 +8,19 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { UsersComponent } from './components/users/users.component';
+import { UserComponent } from './components/user/user.component';
 
 import { UsersService } from './services/users/users.service';
+import { UserService } from './services/user/user.service';
+import { ErrorViewerComponent } from './components/error-viewer/error-viewer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    UsersComponent
+    UsersComponent,
+    UserComponent,
+    ErrorViewerComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,8 @@ import { UsersService } from './services/users/users.service';
     ReactiveFormsModule
   ],
   providers: [
-    UsersService
+    UsersService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
