@@ -1,3 +1,10 @@
+<label>
+    Name:
+    <input type="text" [formControl]="username">
+</label>
+
+<button (click)="searchUsers()">Search user</button>
+
 <ng-container *ngIf="users.items">
     <div *ngFor="let user of users.items">
         {{user.login}}

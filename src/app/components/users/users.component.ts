@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Users } from 'src/app/models/users';
 import { UsersService } from 'src/app/services/users/users.service';
-
-const MAX_RESULTS: number = 10;
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss']
 })
-export class UsersComponent implements OnInit {
-  public users = {} as Users;
+export class UsersComponent {
+  users = {} as Users;
+  username = new FormControl('');
   
   constructor(private readonly usersService: UsersService) { }
 
-  ngOnInit(): void {
-    this.usersService.getUsers('arnau').subscribe(response => {
+  searchUsers(): void {
+    this.usersService.getUsers(this.username.value).subscribe(response => {
       this.users = response;
     });
   }
