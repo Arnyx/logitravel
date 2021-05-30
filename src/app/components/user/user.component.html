@@ -1,13 +1,19 @@
-<div *ngIf="(user | json) != '{}'; else nouser" class="user card">
-    <img [src]="user.avatar_url" [alt]="user.login" fallback="assets/img/blank-profile.png" />
-    <div class="card-body">
-        <h5 class="card-title">{{user.login}}</h5>
-        <p class="card-text">
-            <a [href]="user.html_url">User profile</a>
-        </p>
+<section class="user">
+    <div *ngIf="(user | json) != '{}'; else noUser" class="card">
+        <div class="user__image-wrapper">
+            <img class="user__image" [src]="user.avatar_url" [alt]="user.login" fallback="assets/img/blank-profile.png" />
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{user.login}}</h5>
+            <p class="card-text">
+                <a [href]="user.html_url">User profile</a>
+            </p>
+        </div>
     </div>
-</div>
 
-<ng-template #nouser>
-    No user found with the name: {{username}}
-</ng-template>
+    <ng-template #noUser>
+        <div *ngIf="userLoaded">
+            No user found with the name: {{username}}
+        </div>
+    </ng-template>
+</section>

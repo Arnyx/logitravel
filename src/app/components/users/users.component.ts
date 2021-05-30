@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 export class UsersComponent implements OnInit {
   username: string = '';
   users = {} as Users;
+  usersLoaded: boolean = false;
   
   constructor(
     private readonly usersService: UsersService,
@@ -31,6 +32,9 @@ export class UsersComponent implements OnInit {
         },
         error => {
           this.errorService.showError(error.error.message);
+        },
+        () => {
+          this.usersLoaded = true;
         }
       );
     });

@@ -15,7 +15,9 @@ export class SearchUserComponent {
   constructor(private readonly router: Router) { }
 
   searchUsers() {
-    this.router.navigate(['/users', this.username.value]);
+    if (this.username.value) {
+      this.router.navigate(['/users', this.username.value]);
+    }
   }
 
 }

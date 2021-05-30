@@ -12,6 +12,7 @@ import { UsersService } from 'src/app/services/users/users.service';
 export class UserComponent implements OnInit {
   user = {} as User;
   username: string = '';
+  userLoaded: boolean = false;
 
   constructor(
     private readonly activatedRoute: ActivatedRoute,
@@ -28,6 +29,9 @@ export class UserComponent implements OnInit {
         },
         error => {
           this.errorService.showError(error.error.message);
+        },
+        () => {
+          this.userLoaded = true;
         }
       )
     })
