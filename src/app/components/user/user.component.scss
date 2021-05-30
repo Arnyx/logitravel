@@ -18,3 +18,12 @@
         @include fadeIn(1s);
     }
 }
+
+@include media-breakpoint-down(sm) {
+    .user {
+        width: 100%;
+        &__image-wrapper {
+            height: 300px;
+        }
+    }
+}

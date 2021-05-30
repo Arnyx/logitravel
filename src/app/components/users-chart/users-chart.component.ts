@@ -3,6 +3,7 @@ import { EChartsOption } from 'echarts';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from 'src/app/models/user';
+import { UserFollowers } from 'src/app/models/user-followers';
 import { ErrorService } from 'src/app/services/error/error.service';
 import { UsersService } from 'src/app/services/users/users.service';
 
@@ -33,13 +34,14 @@ export class UsersChartComponent {
     this._users.forEach(user => {
       followersObservables.push(
         this.usersService.getFollowers(user.login)
-          .pipe(map((followers: User[]) => {
-            return {
-              username: user.login,
-              followers: followers.length
-            };
-          }))
-      )
+          .pipe(map((followers: User[]): UserFollowers => { 
+              return { 
+                User: user, 
+                Followers: followers 
+              };
+            })
+          )
+      );
     });
 
     return followersObservables;
@@ -50,8 +52,8 @@ export class UsersChartComponent {
     this.usersFollowers = new Map<string, number>();
     
     forkJoin(this.followersObservables).subscribe(userFollowers => {
-      userFollowers.forEach(user => {
-        this.usersFollowers.set(user.username, user.followers);
+      userFollowers.forEach((user: UserFollowers) => {
+        this.usersFollowers.set(user.User.login, user.Followers.length);
       });
 
       this.options = {
