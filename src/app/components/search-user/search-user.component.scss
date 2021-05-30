@@ -4,5 +4,8 @@
     &__control {
         font-size: $font-size;
         padding: $form-control-padding;
+        &.-error {
+            border-color: $brand-color-warning;
+        }
     }
 }

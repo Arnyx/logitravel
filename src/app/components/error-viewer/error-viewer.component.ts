@@ -16,4 +16,8 @@ export class ErrorViewerComponent implements OnInit {
     })
   }
 
+  removeError(): void {
+    this.error = '';
+  }
+
 }

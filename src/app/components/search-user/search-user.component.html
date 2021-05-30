@@ -1,6 +1,6 @@
 <div class="search-user input-group">
     <div class="form-outline">
-        <input type="search" id="username" class="search-user__control form-control" [formControl]="username" required minlength="4" placeholder="Search user">
+        <input type="search" id="username" class="search-user__control form-control" [ngClass]="{'-error': username.invalid && (username.dirty || username.touched)}" [formControl]="username" required minlength="4" placeholder="Search user">
     </div>
     <button type="button" class="btn btn-primary" (click)="searchUsers()">
         <fa-icon [icon]="faSearch"></fa-icon>
