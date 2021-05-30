@@ -1,7 +1,10 @@
 <section class="users">
     <ng-container *ngIf="users.items?.length; else noUsers">
         <div class="users__list list-group list-group-horizontal">
-            <a *ngFor="let user of users.items" [routerLink]="['/user', user.login]" routerLinkActive="active" class="list-group-item list-group-item-action">{{user.login}}</a>
+            <a *ngFor="let user of users.items" [routerLink]="['/user', user.login]" routerLinkActive="active" class="list-group-item list-group-item-action">
+                <span class="users__user-login">{{user.login}}</span>
+                <span class="users__user-id">User ID: {{user.id}}</span>
+            </a>
         </div>
 
         <app-users-chart [users]="users.items"></app-users-chart>

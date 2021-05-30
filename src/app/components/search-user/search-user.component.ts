@@ -26,7 +26,7 @@ export class SearchUserComponent implements OnInit {
     ])
   }
 
-  searchUsers() {
+  searchUsers(): void {
     if (this.username.valid) {
       this.router.navigate(['/users', this.username.value]);
     } else {

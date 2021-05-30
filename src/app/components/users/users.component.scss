@@ -1,6 +1,10 @@
 @import "~src/assets/scss/import-files";
 .users {
     @include fadeIn(1s);
+    &__user-id {
+        display: block;
+        font-size: 0.6rem;
+    }
 }
 
 @include media-breakpoint-down(lg) {

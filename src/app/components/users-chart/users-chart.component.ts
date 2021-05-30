@@ -22,7 +22,7 @@ export class UsersChartComponent {
   usersFollowers = new Map<string, number>();
   options = {} as EChartsOption;
 
-  constructor(
+  constructor (
     private readonly usersService: UsersService,
     private readonly errorService: ErrorService
   ) { }
