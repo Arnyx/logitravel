@@ -14,10 +14,10 @@ import { UsersComponent } from './components/users/users.component';
 import { UserComponent } from './components/user/user.component';
 import { ErrorViewerComponent } from './components/error-viewer/error-viewer.component';
 import { UsersChartComponent } from './components/users-chart/users-chart.component';
+import { SearchUserComponent } from './components/search-user/search-user.component';
 
 import { UsersService } from './services/users/users.service';
 import { ErrorService } from './services/error/error.service';
-import { SearchUserComponent } from './components/search-user/search-user.component';
 
 @NgModule({
   declarations: [

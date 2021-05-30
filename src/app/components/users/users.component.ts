@@ -10,13 +10,13 @@ import { UsersService } from 'src/app/services/users/users.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  username: string = '';
   users = {} as Users;
+  username: string = '';
   usersLoaded: boolean = false;
   
   constructor(
-    private readonly usersService: UsersService,
     private readonly activatedRoute: ActivatedRoute,
+    private readonly usersService: UsersService,
     private readonly errorService: ErrorService
   ) { }
 

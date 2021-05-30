@@ -56,42 +56,46 @@ export class UsersChartComponent {
         this.usersFollowers.set(user.User.login, user.Followers.length);
       });
 
-      this.options = {
-        color: ['#3398DB'],
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow',
-          },
-        },
-        grid: {
-          left: 0,
-          right: 0,
-          bottom: 0,
-          containLabel: true,
-        },
-        xAxis: {
-          type: 'category',
-          data: [ ...this.usersFollowers.keys() ],
-          axisTick: {
-            alignWithLabel: true,
-          },
-        },
-        yAxis: {
-          type: 'value',
-        },
-        series: [
-          {
-            name: 'Followers',
-            type: 'bar',
-            barWidth: '60%',
-            data: [ ...this.usersFollowers.values() ]
-          },
-        ],
-      }
+      this.setChartOptions();
     },
     error => {
       this.errorService.showError(error.error.message);
     });
   }  
+
+  private setChartOptions(): void {
+    this.options = {
+      color: ['#3398DB'],
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow',
+        },
+      },
+      grid: {
+        left: 0,
+        right: 0,
+        bottom: 0,
+        containLabel: true,
+      },
+      xAxis: {
+        type: 'category',
+        data: [ ...this.usersFollowers.keys() ],
+        axisTick: {
+          alignWithLabel: true,
+        },
+      },
+      yAxis: {
+        type: 'value',
+      },
+      series: [
+        {
+          name: 'Followers',
+          type: 'bar',
+          barWidth: '60%',
+          data: [ ...this.usersFollowers.values() ]
+        },
+      ],
+    }
+  }
 }

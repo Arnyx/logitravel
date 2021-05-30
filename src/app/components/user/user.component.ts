@@ -23,6 +23,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
       this.username = params['username'];
+      
       this.usersService.getUser(this.username).subscribe(
         response => {
           this.user = response;
