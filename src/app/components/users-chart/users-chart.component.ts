@@ -46,6 +46,7 @@ export class UsersChartComponent {
   } 
 
   private createChart(): void {
+    this.options = {};
     this.usersFollowers = new Map<string, number>();
     
     forkJoin(this.followersObservables).subscribe(userFollowers => {
@@ -88,7 +89,7 @@ export class UsersChartComponent {
       }
     },
     error => {
-      this.errorService.showError(error)
+      this.errorService.showError(error.error.message);
     });
   }  
 }

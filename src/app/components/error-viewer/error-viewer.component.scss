@@ -1,0 +1,7 @@
+@import "~src/assets/scss/import-files";
+.error-viewer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    @include fadeIn(1s);
+}

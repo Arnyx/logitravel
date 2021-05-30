@@ -11,6 +11,8 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class UserComponent implements OnInit {
   user = {} as User;
+  username: string = '';
+
   constructor(
     private readonly activatedRoute: ActivatedRoute,
     private readonly usersService: UsersService,
@@ -19,13 +21,13 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params => {
-      let username: string = params['username'];
-      this.usersService.getUser(username).subscribe(
+      this.username = params['username'];
+      this.usersService.getUser(this.username).subscribe(
         response => {
           this.user = response;
         },
         error => {
-          this.errorService.showError(error);
+          this.errorService.showError(error.error.message);
         }
       )
     })

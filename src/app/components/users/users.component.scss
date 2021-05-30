@@ -2,3 +2,11 @@
 .users {
     @include fadeIn(1s);
 }
+
+@include media-breakpoint-down(lg) {
+    .users {
+        &__list {
+            flex-wrap: wrap;
+        }
+    }
+}

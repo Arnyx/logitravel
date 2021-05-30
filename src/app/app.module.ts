@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DirectivesModule } from './directives/directives.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -35,6 +36,7 @@ import { SearchUserComponent } from './components/search-user/search-user.compon
     CommonModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    DirectivesModule,
     NgxEchartsModule.forRoot({
       echarts: () => import('echarts')
     })

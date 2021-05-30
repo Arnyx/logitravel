@@ -1,9 +1,13 @@
 <section class="users">
-    <ng-container *ngIf="users.items">
-        <div *ngFor="let user of users.items">
-            <a [routerLink]="['/user', user.login]" routerLinkActive="active">{{user.login}}</a>
+    <ng-container *ngIf="users.items?.length; else nousers">
+        <div class="users__list list-group list-group-horizontal">
+            <a *ngFor="let user of users.items" [routerLink]="['/user', user.login]" routerLinkActive="active" class="list-group-item list-group-item-action">{{user.login}}</a>
         </div>
 
         <app-users-chart [users]="users.items"></app-users-chart>
     </ng-container>
+
+    <ng-template #nousers>
+        No users found with the name: {{username}}
+    </ng-template>
 </section>

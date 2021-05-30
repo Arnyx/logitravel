@@ -1,0 +1,8 @@
+@import "~src/assets/scss/import-files";
+.search-user {
+    flex-wrap: nowrap;
+    &__control {
+        font-size: $font-size;
+        padding: $form-control-padding;
+    }
+}

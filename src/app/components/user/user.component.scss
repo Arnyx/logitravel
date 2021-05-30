@@ -1,0 +1,5 @@
+@import "~src/assets/scss/import-files";
+.user {
+    width: 400px;
+    @include fadeIn(1s);
+}

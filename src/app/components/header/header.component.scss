@@ -20,5 +20,19 @@
     }
     &__logo {
         max-height: $logo-height;
+        &.-sm {
+            display: none;
+        }
+    }
+}
+
+@include media-breakpoint-down(lg) {
+    .main-header {
+        &__logo {
+            display: none;
+            &.-sm {
+                display: block;
+            }
+        }
     }
 }

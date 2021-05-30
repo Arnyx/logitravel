@@ -30,7 +30,7 @@ export class UsersComponent implements OnInit {
           this.users = response;
         },
         error => {
-          this.errorService.showError(error);
+          this.errorService.showError(error.error.message);
         }
       );
     });
